@@ -1,0 +1,10 @@
+{
+  "eigenvalue": 174.71495564778647,
+  "curvature": 27.398221541297527,
+  "seed": 42,
+  "ckpt_name": "checkpoint",
+  "num_eval_batches": 4,
+  "eps_scale": 1.0,
+  "num_points": 41,
+  "timestamp": "2025-11-27 18:21:13"
+}

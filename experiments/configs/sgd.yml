@@ -1,0 +1,26 @@
+seed: 42
+device: auto
+
+dataset:
+  name: CIFAR10
+  root: data
+  train_batch: 128
+  eval_batch: 256
+
+model:
+  name: small_cnn
+  num_classes: 10
+
+optimizer:
+  name: sgd
+  lr: 0.01
+  momentum: 0.0
+  weight_decay: 5e-4
+
+train:
+  epochs: 12
+  save_dir: experiments/runs/sgd_seed42
+  save_name: checkpoint.pt
+
+probes:
+  out_dir: experiments/runs/sgd_seed42/probes

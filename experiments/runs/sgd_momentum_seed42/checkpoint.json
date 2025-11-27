@@ -1,0 +1,38 @@
+{
+  "cfg": {
+    "seed": 42,
+    "device": "auto",
+    "dataset": {
+      "name": "CIFAR10",
+      "root": "data",
+      "train_batch": 128,
+      "eval_batch": 256
+    },
+    "model": {
+      "name": "small_cnn",
+      "num_classes": 10
+    },
+    "optimizer": {
+      "name": "sgd",
+      "lr": 0.01,
+      "momentum": 0.9,
+      "weight_decay": "5e-4"
+    },
+    "train": {
+      "epochs": 12,
+      "save_dir": "experiments/runs/sgd_momentum_seed42",
+      "save_name": "checkpoint.pt"
+    }
+  },
+  "epoch": 11,
+  "metrics": {
+    "train_acc": 0.69248,
+    "train_loss": 0.889657046699524,
+    "val_acc": 0.7189
+  },
+  "git_hash": null,
+  "git_dirty": null,
+  "timestamp": "2025-11-27T17:05:15.314304",
+  "torch_version": "2.9.1",
+  "numpy_version": "2.3.4"
+}

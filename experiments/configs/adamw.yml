@@ -1,0 +1,25 @@
+seed: 42
+device: auto
+
+dataset:
+  name: CIFAR10
+  root: data
+  train_batch: 128
+  eval_batch: 256
+
+model:
+  name: small_cnn
+  num_classes: 10
+
+optimizer:
+  name: adamw
+  lr: 0.001
+  weight_decay: 1e-2
+
+train:
+  epochs: 12
+  save_dir: experiments/runs/adamw_seed42
+  save_name: checkpoint.pt
+
+probes:
+  out_dir: experiments/runs/adamw_seed42/probes

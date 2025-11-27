@@ -1,0 +1,26 @@
+{
+  "top_eigenvalues": [
+    129.344383067116,
+    91.43191580079913,
+    75.12931084334792
+  ],
+  "top_eigenvalue_stds": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "smallest_eigenvalues": [
+    -4.93785579763372,
+    -4.6604983666436395,
+    -4.501932050426584
+  ],
+  "lambda_max": 129.344383067116,
+  "lambda_min": -4.93785579763372,
+  "condition_number": -26.19444316885467,
+  "condition_number_magnitude": 26.19444316885467,
+  "n_parameters": 183242,
+  "k": 3,
+  "num_batches_used": 1,
+  "status": "success",
+  "warning": "Hessian has negative eigenvalues (indefinite); condition number may be negative"
+}
