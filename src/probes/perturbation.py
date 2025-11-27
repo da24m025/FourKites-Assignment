@@ -1,6 +1,6 @@
 """Perturbation analysis: move along Hessian top eigenvector and measure loss.
 
-CRITICAL FIXES (research-grade):
+CRITICAL FIXES:
 - Fixed data iterator (uses fixed eval batch, not repeatedly first batch)
 - Explicit device/dtype consistency
 - Proper parameter restore after probe
