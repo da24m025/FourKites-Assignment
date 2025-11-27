@@ -3,14 +3,6 @@
 Uses ParameterList with proper optimization to find low-loss paths between minima.
 Gradients flow correctly through stateless.functional_call.
 
-CRITICAL FIXES (research-grade):
-- Persistent data iterator (not repeatedly fresh batches from first item)
-- Tensor-based loss accumulation (not float)
-- Required stateless.functional_call (no broken fallback)
-- Early stopping with convergence criteria
-- Proper node serialization to disk
-- Gradient clipping for stability
-- Comprehensive logging
 """
 import argparse
 import yaml
@@ -150,7 +142,7 @@ def auto_neb(ckpt_a, ckpt_b, cfg, n_nodes=8, iters=100, spring_k=1e-2, lr=1e-3,
         print(f"AutoNEB: n_nodes={n_nodes}, interior_nodes={len(interior_nodes)}, "
               f"max_iters={iters}, spring_k={spring_k}, lr={lr}")
     
-    # ============ CRITICAL FIX #1: Persistent data iterator ============
+    # ============  Persistent data iterator ============
     # Create ONE iterator before loop; advance it properly
     data_iter = iter(te)
     
@@ -165,12 +157,11 @@ def auto_neb(ckpt_a, ckpt_b, cfg, n_nodes=8, iters=100, spring_k=1e-2, lr=1e-3,
     for it in range(iters):
         optimizer.zero_grad()
         
-        # ============ CRITICAL FIX #2: Initialize total_loss as tensor ============
         total_loss = torch.tensor(0.0, device=device, dtype=torch.float32)
         barrier_losses = []
         
         for i in range(1, n_nodes - 1):
-            # ============ CRITICAL FIX #1 cont: Advance single iterator ============
+            # ============  Advance single iterator ============
             try:
                 xb, yb = next(data_iter)
             except StopIteration:
@@ -231,7 +222,7 @@ def auto_neb(ckpt_a, ckpt_b, cfg, n_nodes=8, iters=100, spring_k=1e-2, lr=1e-3,
     if verbose:
         print(f"AutoNEB complete after {it+1} iterations")
     
-    # ============ CRITICAL FIX #4: Save nodes & metadata ============
+    # ============  FIX #4: Save nodes & metadata ============
     if save_nodes:
         _save_neb_nodes(nodes, ckpt_a, ckpt_b, cfg, {
             'n_nodes': n_nodes,
