@@ -204,7 +204,6 @@ python3 src/probes/perturbation.py --checkpoint experiments/runs/sgd_seed42/chec
 python3 src/probes/intrinsic_dim.py --config experiments/configs/sgd.yml --d_sub 15 --seed 42
 python3 src/probes/interpolation.py --ckpt_a experiments/runs/sgd_seed42/checkpoint.pt --ckpt_b experiments/runs/sgd_momentum_seed42/checkpoint.pt --config experiments/configs/sgd.yml --steps 41
 
-# Repeat for sgd_momentum_seed42 and adamw_seed42...
 ```
 
 ## Results Analysis
@@ -342,6 +341,3 @@ This project implements loss landscape analysis techniques from:
 - Li, H., Xu, Z., Taylor, G., Studer, C., & Goldstein, T. (2018). Visualizing the Loss Landscape of Neural Nets. NeurIPS.
 - Foret, P., Kleiner, A., Mobahi, H., & Neyshabur, B. (2020). Sharpness Aware Minimization for Efficiently Improving Generalization. ICLR.
 
-## License
-
-This is an assignment project for educational purposes.
