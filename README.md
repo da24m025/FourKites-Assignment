@@ -29,6 +29,7 @@ src/
     ├── perturbation.py     # Top-eigenvector sensitivity
     ├── intrinsic_dim.py    # Intrinsic dimensionality
     └── interpolation.py    # Linear interpolation between models
+└──DA24M025_report          # Assessment Report
 
 experiments/
 ├── configs/
